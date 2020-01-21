@@ -1,0 +1,28 @@
+# Silvercar
+
+Review the documentation of the GitHub API at: https://developer.github.com/v3/
+Imagine that you are on the team that has been tasked with implementing this specification.
+
+Part 1: Answer the following questions:
+
+o   What concerns would you have from a testing perspective?
+
+- The above link describes basic functionality of new v3 version of github APIs. The document looks pretty straight forward, but from what I see it does not cover all possible scenarios\use cases. For example, when they talk about Failed login limit in Authorization, we don’t know how many trials the user has before he hits the limit, for how long he will be limited to try again. As a QA Engineer it’s our task to test all possible happy path, boundaries and negative scenarios as possible. So for us QA to be able to fully test these APIs we would need name of the API and what function it is going to do, expected result after execution. Possible failure cases. Based on that we can come up with all happy path tests, as well as cover errors, after that we can try to “break things” and make sure that our app handles them properly(examples could be sending SQL queries and making sure we’re not getting back results, trying different calls like POST,PUT,DELETE and making sure valid errors are returned back, valid roles, scopes testing for OATH etc..)
+
+o   How would you go about tackling the QA for this work?
+
+- API backend services are not the easiest one to understand, and before jumping into writing automation I would need to talk to developers, architects to understand the whole picture how our services are connected between each other, this would require spending quite some time working with documentation, looking at real cases. This all assumes that testing environment is already existing and we could run tests there.
+
+o   What sort of tests would be worth describing or worth automating?
+
+- I would go first with building simple smoke test suite that could be later used a part of pre-merge validation step. It will cover only the most important areas without which we can’t ship our product. Usually it’s 10 to 20 most used tests. Pretty sure we can get data from developers on endpoints that are being hit most frequently.
+
+o   What tools would you use?
+
+- To answer this question, I would need to get more information from the team. Ideally, we would need to match programming language that developers are using to be on the same page with them, this would as well allow them to contribute into framework if needed. Based on that we would be able to find testing libraries\frameworks that would make our lives easier. I am a big fan of open source projects as they have lots of information, documentation around the web.
+
+Part 2: Stub implementation
+o   Build a stub implementation of one endpoint and a test battery for that endpoint with the tech stack of your choice, and provide the URL of a public git repository that contains your implementation and tests.
+o   Include documentation in your repository that contains your written answers to the questions above.
+
+- For this task I decided to use Postman\Newman. I see that this app is becoming an industry standard when we talk about testing rest APIs. The project is developing very fast and is able to run manual, automated tests, it has functionality to run mocks and is easy to maintain. The app has both graphical and command-line interfaces, which allows it to run as a part of pipeline or in a standalone app. The app is cross platform(Linux, Mac, Windows). All of these in my opinion makes it one of the best choices to quickly start as well as easy scale for the long run.
