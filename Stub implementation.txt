@@ -1,3 +1,12 @@
-open with Postman
+prerequisites: 
+- Postman
 
-https://documenter.getpostman.com/view/10128078/SWT5jMCS
+1) Download Postman app
+
+2) Open url below:
+https://documenter.getpostman.com/view/10128078/SWT5jMCS?version=latest
+
+3) Click on 'Run in Postman'
+note: make sure to select right enviroment: 'GitHubMock'
+
+4) Send request
